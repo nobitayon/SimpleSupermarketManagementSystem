@@ -12,9 +12,9 @@ public class CategoriesController : Controller
         return View(categories);
     }
 
-    public IActionResult Edit(int? id)
+    public IActionResult Edit([FromRoute]int? id)
     {
-        var category = new Category { CategoryId = id ?? 0 };
+        var category = CategoriesRepository.GetCategoryById(id ?? 0);
 
         return View(category);
     }
