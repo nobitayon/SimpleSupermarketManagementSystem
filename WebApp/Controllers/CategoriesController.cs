@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApp.Models;
+using WebApp.Views.Categories;
 
 namespace WebApp.Controllers;
 
@@ -7,7 +8,8 @@ public class CategoriesController : Controller
 {
     public IActionResult Index()
     {
-        return View();
+        var categories = CategoriesRepository.GetCategories();
+        return View(categories);
     }
 
     public IActionResult Edit(int? id)
