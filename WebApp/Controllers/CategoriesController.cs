@@ -28,6 +28,26 @@ public class CategoriesController : Controller
 
             return RedirectToAction(nameof(Index));
         }
+
+        return View(category);
+    }
+
+    public IActionResult Add()
+    {
+
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult Add([FromForm]Category category)
+    {
+        if (ModelState.IsValid)
+        {
+            CategoriesRepository.AddCategory(category);
+
+            return RedirectToAction(nameof(Index));
+        }
+
         return View(category);
     }
 }
