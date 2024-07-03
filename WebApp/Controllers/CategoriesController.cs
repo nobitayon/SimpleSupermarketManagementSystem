@@ -50,4 +50,13 @@ public class CategoriesController : Controller
 
         return View(category);
     }
+
+    public IActionResult Delete([FromRoute] int id)
+    {
+
+        Console.WriteLine(id);
+        CategoriesRepository.DeleteCategory(id);
+
+        return RedirectToAction(nameof(Index));
+    }
 }

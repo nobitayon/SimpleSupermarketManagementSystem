@@ -39,6 +39,7 @@
             @RenderBody()
         </div>
     </div>
+    @await RenderSectionAsync("Scripts",required: false)
     <script src="/_framework/aspnetcore-browser-refresh.js"></script>
 </body>
 </html>
