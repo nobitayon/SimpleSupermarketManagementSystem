@@ -39,8 +39,8 @@ public class CategoriesRepository
     {
         if (categoryId != category.CategoryId) return;
 
-        var categoryToUpdate = GetCategoryById(categoryId);
-        if(categoryToUpdate != null)
+        var categoryToUpdate = _categories.FirstOrDefault(x => x.CategoryId == categoryId);
+        if (categoryToUpdate != null)
         {
             categoryToUpdate.Name = category.Name;
             categoryToUpdate.Description = category.Description;
