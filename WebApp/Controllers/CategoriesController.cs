@@ -14,6 +14,8 @@ public class CategoriesController : Controller
 
     public IActionResult Edit([FromRoute]int? id)
     {
+        ViewBag.Action = "edit";
+
         var category = CategoriesRepository.GetCategoryById(id ?? 0);
 
         return View(category);
@@ -34,6 +36,7 @@ public class CategoriesController : Controller
 
     public IActionResult Add()
     {
+        ViewBag.Action = "add";
 
         return View();
     }
